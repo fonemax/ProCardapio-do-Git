@@ -1,0 +1,93 @@
+<div class="row mt-4">
+
+   <div class="col-md-6 d-none d-md-block" style="height: 450px;">
+      <div class="text-center col-md-12 my-auto side-heder">
+         <h1>Cadastro de Usuário</h1>
+         <img src="../../../../assets/registerImage.png" class="my-4" alt="" width="400px">
+      </div>
+   </div>
+
+   <div class="col-md-6">
+
+      <form [formGroup]="form" class="p-1">
+         <div class="pb-2 d-block d-md-none">
+            <h3 class="border-bottom">Cadastro de Usuário</h3>
+         </div>
+         <div class="form-group">
+            <label for="">Usuário:</label>
+            <input class="form-control" type="text"
+            [ngClass]="cssValidator(f.nomeUsuario)"
+            formControlName="nomeUsuario" placeholder="Insira o nome de Usuário" />
+            <div *ngIf="f.nomeUsuario.errors?.required" class="invalid-feedback">
+               Nome de Usuário é obrigatório.
+            </div>
+            <div *ngIf="f.nomeUsuario.errors?.minlength" class="invalid-feedback">
+               Nome de Usuário deve ter no mínimo 4 caracteres.
+            </div>
+            <div *ngIf="f.nomeUsuario.errors?.maxlength" class="invalid-feedback">
+               Nome de Usuário deve ter no máximo 15 caracteres.
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="form-group col-sm-6">
+               <label for="">Senha:</label>
+               <input class="form-control" type="password"
+               [ngClass]="cssValidator(f.senha)"
+               formControlName="senha" placeholder="Digite uma Senha" />
+               <div *ngIf="f.senha.errors?.required" class="invalid-feedback">
+                  Senha é obrigatório.
+               </div>
+               <div *ngIf="f.senha.errors?.minlength" class="invalid-feedback">
+                  Senha deve ter no mínimo 4 caracteres.
+               </div>
+               <div *ngIf="f.senha.errors?.maxlength" class="invalid-feedback">
+                  Senha deve ter no máximo 15 caracteres.
+               </div>
+            </div>
+            <div class="form-group col-sm-6">
+               <label for="">Confirmar Senha:</label>
+               <input class="form-control" type="password"
+               [ngClass]="cssValidator(f.senhaConfirm)"
+               formControlName="senhaConfirm" placeholder="Confirme a Senha" />
+               <div *ngIf="f.senhaConfirm.errors?.required" class="invalid-feedback">
+                  Confirmar Senha é obrigatório.
+               </div>
+               <div *ngIf="f.senhaConfirm.errors?.mustMatch" class="invalid-feedback">
+                  Confirmar senha não corresponde ao campo Senha.
+               </div>
+            </div>
+         </div>
+         <div class="input-group mb-3">
+            <div class="form-check">
+               <input
+                 class="form-check-input"
+                 type="checkbox"
+                 value=""
+                 id="invalidCheck"
+                 required
+                 formControlName="termos"
+                 [ngClass]="cssValidator(f.termos)"
+               />
+               <label class="form-check-label" for="invalidCheck">
+                  Concordo com os <a href="#">Termos de Uso</a>.
+               </label>
+               <div class="invalid-feedback">Você deve concordar com os termos.</div>
+             </div>
+          </div>
+         <div class="form-row">
+            <div class="form-group col-12">
+               <button class="btn btn-lg btn-success btn-block px-5" [disabled]="!form.valid" (click)="salvarRegistro()">
+                  Registar
+               </button>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="form-group col-12">
+               <a class="btn btn-link btn-block" routerLink="/users/login">
+                  Já sou Registrado
+               </a>
+            </div>
+         </div>
+      </form>
+   </div>
+</div>

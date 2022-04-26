@@ -1,0 +1,12 @@
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Domain\bin\Debug\net5.0\ProCardapio.Domain.deps.json
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Domain\bin\Debug\net5.0\ProCardapio.Domain.dll
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Domain\bin\Debug\net5.0\ref\ProCardapio.Domain.dll
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Domain\bin\Debug\net5.0\ProCardapio.Domain.pdb
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Domain\obj\Debug\net5.0\ProCardapio.Domain.csproj.AssemblyReference.cache
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Domain\obj\Debug\net5.0\ProCardapio.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Domain\obj\Debug\net5.0\ProCardapio.Domain.AssemblyInfoInputs.cache
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Domain\obj\Debug\net5.0\ProCardapio.Domain.AssemblyInfo.cs
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Domain\obj\Debug\net5.0\ProCardapio.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Domain\obj\Debug\net5.0\ProCardapio.Domain.dll
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Domain\obj\Debug\net5.0\ref\ProCardapio.Domain.dll
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Domain\obj\Debug\net5.0\ProCardapio.Domain.pdb

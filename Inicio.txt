@@ -1,0 +1,66 @@
+-Ferramentas
+Visual Studio Code
+   EntityFrameWorkCore (lista: dotnet tool list --global, instala: dotnet tool install --global dotnet-ef)
+   Migrations (na pasta back/src) 
+  							  dotnet ef migrations add Initial -p ProCardapio.Persistence -s ProCardapio.API
+							  dotnet ef database update -s ProCardapio.API
+	
+Postman
+
+DB Browser (SQLite)
+
+Angular 12
+	font awesome (https://fontawesome.com/)   npm install --save @fortawesome/fontawesome-free
+	ngx-bootstrap (https://valor-software.com/ngx-bootstrap/#/documentation#getting-started)  
+			npm install ngx-bootstrap --save
+			npm install bootstrap@4
+			ng add ngx-bootstrap
+
+Rodar back:  na pasta ProCardapio.API -> dotnet watch run
+Rodar front: na pasta ProCardapio-App -> ng serve -o
+
+ngx-toastr: (https://www.npmjs.com/package/ngx-toastr)
+no front procardapio-App: 	npm install ngx-toastr --save
+
+ngx-spinner: (https://www.npmjs.com/package/ngx-spinner)
+no front procardapio-App: 	npm install ngx-spinner --save
+
+ngx-mask: (https://www.npmjs.com/package/ngx-mask)
+
+ngx-currency: (https://www.npmjs.com/package/ngx-currency)
+no front procardapio-App:  	npm i ngx-currency
+
+https://valor-software.com/ngx-bootstrap/#/tabs   ng add ngx-bootstrap  --component tabs
+
+
+
+layouts:  https://bootsnipp.com/
+em snippets\Tags\profile
+
+Temas: (boostrap) (https://bootswatch.com/)
+em Front/ProCardapio-App:    npm install bootswatch
+em styles importar : @import "../node_modules/bootswatch/dist/cosmo/bootstrap.min.css";
+
+JwtHelperService: (https://www.npmjs.com/package/@auth0/angular-jwt)
+npm i @auth0/angular-jwt
+
+Angular:
+npm install 
+
+Atualizar Angular
+	ng update @angular/core @angular/cli
+	
+	deploy:
+	npm install source-map-explorer --save-dev
+	----
+	ng build --prod --source-map
+	
+	donet publish -o /Users/marco/Desktop/ProCardapio
+	
+	
+	
+	
+	
+	
+	
+  

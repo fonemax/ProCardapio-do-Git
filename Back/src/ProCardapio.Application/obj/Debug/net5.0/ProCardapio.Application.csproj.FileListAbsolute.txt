@@ -1,0 +1,17 @@
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\bin\Debug\net5.0\ProCardapio.Application.deps.json
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\bin\Debug\net5.0\ProCardapio.Application.dll
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\bin\Debug\net5.0\ref\ProCardapio.Application.dll
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\bin\Debug\net5.0\ProCardapio.Application.pdb
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\bin\Debug\net5.0\ProCardapio.Domain.dll
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\bin\Debug\net5.0\ProCardapio.Persistence.dll
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\bin\Debug\net5.0\ProCardapio.Domain.pdb
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\bin\Debug\net5.0\ProCardapio.Persistence.pdb
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\obj\Debug\net5.0\ProCardapio.Application.csproj.AssemblyReference.cache
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\obj\Debug\net5.0\ProCardapio.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\obj\Debug\net5.0\ProCardapio.Application.AssemblyInfoInputs.cache
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\obj\Debug\net5.0\ProCardapio.Application.AssemblyInfo.cs
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\obj\Debug\net5.0\ProCardapio.Application.csproj.CoreCompileInputs.cache
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\obj\Debug\net5.0\ProCardapio.Application.csproj.CopyComplete
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\obj\Debug\net5.0\ProCardapio.Application.dll
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\obj\Debug\net5.0\ref\ProCardapio.Application.dll
+C:\Users\Inspiron10\Desktop\ProCardapio do Git\Back\src\ProCardapio.Application\obj\Debug\net5.0\ProCardapio.Application.pdb

@@ -1,0 +1,235 @@
+<div class="row">
+   <div [ngClass]="{'col-md-8 pr-0': modoEditar, 'col-md-12': !modoEditar}">
+      <div class="card rounded shadow-sm">
+         <form [formGroup]="form">
+            <div class="p-3">
+               <div class="form-row">
+                  <div class="form-group col-md-12">
+                     <label>Nome</label>
+                     <input type="text" class="form-control"
+                     [ngClass]="cssValidator(f.nome)" [(ngModel)]="restaurante.nome"
+                     formControlName="nome" placeholder="Nome do Restaurante">
+                     <div *ngIf="f.nome.errors?.required" class="invalid-feedback">
+                        Nome é obrigatório.
+                     </div>
+                     <div *ngIf="f.nome.errors?.minlength" class="invalid-feedback">
+                        Nome deve ter no mínimo 4 caracteres.
+                     </div>
+                     <div *ngIf="f.nome.errors?.maxlength" class="invalid-feedback">
+                        Nome deve ter no máximo 50 caracteres.
+                     </div>
+                  </div>
+               </div>
+               <div class="form-row">
+                  <div class="form-group col-md-12">
+                     <label>Local</label>
+                     <input type="text" class="form-control" [(ngModel)]="restaurante.local"
+                     [ngClass]="cssValidator(f.local)"
+                     formControlName="local" placeholder="Endereço do Restaurante">
+                     <div *ngIf="f.local.errors?.required" class="invalid-feedback">
+                        Local é obrigatório.
+                     </div>
+                     <div *ngIf="f.local.errors?.minlength" class="invalid-feedback">
+                        Local deve ter no mínimo 4 caracteres.
+                     </div>
+                     <div *ngIf="f.local.errors?.maxlength" class="invalid-feedback">
+                        Local deve ter no máximo 50 caracteres.
+                     </div>
+                  </div>
+               </div>
+               <div class="form-row">
+                  <div class="form-group col-md-4">
+                     <label>Tipo</label>
+                     <input type="text" class="form-control" [(ngModel)]="restaurante.tipo"
+                     [ngClass]="cssValidator(f.tipo)"
+                     formControlName="tipo" placeholder="Insira o Tipo">
+                     <div *ngIf="f.tipo.errors?.required" class="invalid-feedback">
+                        Tipo é obrigatório.
+                     </div>
+                  </div>
+                  <div class="form-group col-md-4">
+                     <label>Garfos</label>
+                     <input type="number" class="form-control" [(ngModel)]="restaurante.garfos"
+                     [ngClass]="cssValidator(f.garfos)"
+                     formControlName="garfos" placeholder="Insira Qtd Garfos">
+                     <div *ngIf="f.garfos.errors?.required" class="invalid-feedback">
+                        Garfos é obrigatório.
+                     </div>
+                     <div *ngIf="f.garfos.errors?.max" class="invalid-feedback">
+                        Garfos deve ser no máximo 10.
+                     </div>
+                  </div>
+               </div>
+               <div class="form-row">
+                  <div class="form-group col-md-7">
+                     <label>Email</label>
+                     <input type="text" class="form-control" [(ngModel)]="restaurante.email"
+                     [ngClass]="cssValidator(f.email)"
+                     formControlName="email" placeholder="Insira o e-mail">
+                     <div *ngIf="f.email.errors?.required" class="invalid-feedback">
+                        Email é obrigatório.
+                     </div>
+                     <div *ngIf="f.email.errors?.email" class="invalid-feedback">
+                        Email deve ser um endereço de e-mail válido.
+                     </div>
+                  </div>
+                  <div class="form-group col-md-5">
+                     <label>Telefone</label>
+                     <input type="text" mask="(00) 00000-0000" class="form-control" [(ngModel)]="restaurante.telefone"
+                     [ngClass]="cssValidator(f.telefone)"
+                     formControlName="telefone" placeholder ="(00) 90000-0000">
+                     <div *ngIf="f.telefone.errors?.required" class="invalid-feedback">
+                        Telefone é obrigatório.
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="card-footer">
+               <div class="d-flex">
+                  <button class="btn btn-outline-secondary mr-auto border" (click)="resetForm()">
+                     Cancelar Alteração
+                  </button>
+                  <button class="btn btn-success" [disabled]="!form.valid" (click)="salvarRestaurante()">
+                     <!-- <span class="spinner-border spinner-border-sm mr-1"></span> -->
+                     Salvar Restaurante
+                  </button>
+               </div>
+            </div>
+         </form>
+      </div>
+      <div class="card rounded shadow-sm mt-3" *ngIf="modoEditar">
+         <div class="p-3">
+            <div class="d-flex border-bottom">
+               <h2 class="mr-auto">
+                  Pratos do Restaurante
+               </h2>
+               <h2>
+                  <i class="fas fa-money-bill-wave"></i>
+               </h2>
+            </div>
+            <p>Clique em Prato para adicionar e preencher novos Pratos</p>
+            <div class="form-row p-1">
+               <div [formGroup]="form" class="col">
+                  <div formArrayName="pratos" *ngFor="let prato of pratos.controls; let i = index">
+                     <fieldset [formGroupName]="i" class="form-group">
+                        <legend class="d-flex justify-content-between capitalize">
+                           <button class="p-2 btn btn-sm btn-outline-warning mb-1 d-flex"
+                           (click)="removerPrato(template, i)"
+                           tooltip="Excluir Prato"
+                           [adaptivePosition]="false"
+                           [delay]="500"
+                           placement="left">
+                           <i class="fa fa-window-close my-1"></i>
+                           <b class="ml-1 d-none d-sm-block">Excluir</b>
+                        </button>
+                     </legend>
+                     <div class="row">
+                        <div class="form-group col-md-4">
+                           <label>Nome</label>
+                           <input type="text" class="form-control" formControlName="nome"
+                           [ngClass]="cssValidator(pratos.get(i+'.nome'))"
+                           placeholder="Nome do prato">
+                           <div *ngIf="pratos.get(i+'.nome').errors?.required" class="invalid-feedback">
+                              Nome é obrigatório.
+                           </div>
+                           <div *ngIf="pratos.get(i+'.nome').errors?.minlength" class="invalid-feedback">
+                              Nome deve ter no mínimo 4 caracteres.
+                           </div>
+                           <div *ngIf="pratos.get(i+'.nome').errors?.maxlength" class="invalid-feedback">
+                              Nome deve ter no máximo 50 caracteres.
+                           </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                           <label>Descrição</label>
+                           <input type="text" class="form-control" formControlName="descricao"
+                           [ngClass]="cssValidator(pratos.get(i+'.descricao'))"
+                           placeholder="Descrição">
+                           <div *ngIf="pratos.get(i+'.descricao').errors?.required" class="invalid-feedback">
+                              Descrição é obrigatório.
+                           </div>
+                           <div *ngIf="pratos.get(i+'.descricao').errors?.minlength" class="invalid-feedback">
+                              Descrição deve ter no mínimo 4 caracteres.
+                           </div>
+                           <div *ngIf="pratos.get(i+'.descricao').errors?.maxlength" class="invalid-feedback">
+                              Descrição deve ter no máximo 50 caracteres.
+                           </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                           <label>Preço</label>
+                           <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                           class="form-control" formControlName="preco"
+                           [ngClass]="cssValidator(pratos.get(i+'.preco'))"
+                           placeholder="R$ 0,00">
+                           <div *ngIf="pratos.get(i+'.preco').errors?.required" class="invalid-feedback">
+                              Preço é obrigatório.
+                           </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                           <label>Imagem</label>
+                           <input type="text" class="form-control" formControlName="imagemURL" placeholder="Foto">
+                        </div>
+                     </div>
+                  </fieldset>
+               </div>
+            </div>
+         </div>
+         <button class="d-flex btn btn-outline-primary" (click)="adicionarPrato()">
+            <i class="fa fa-plus-circle my-1"></i>
+            <b class="ml-1">Prato</b>
+         </button>
+      </div>
+      <div class="card-footer">
+         <div class="d-flex">
+            <button class="btn btn-outline-secondary mr-auto border">
+               Cancelar Alteração
+            </button>
+            <button class="btn btn-success" (click)="salvarPratos()" [disabled]="!form.controls.pratos.valid">
+               Salvar Pratos
+            </button>
+         </div>
+      </div>
+   </div>
+</div>
+<div class="col-md-4" *ngIf="modoEditar">
+   <div [formGroup]="form" class="card-restaurante-view shadow-sm">
+      <div class="form-row">
+         <input type="file" #file (change)="onFileChange($event)" class="form-control is-invalid" placeholder="" style="display: none">
+      </div>
+   </div>
+   <div class="card profile-card-2">
+      <div class="card-img-block">
+         <img class="image" [src]="imagemURL" class="img-fluid" (click)="file.click()" alt="Card image cap"
+         tooltip="Upload de Nova Imagem" [adaptivePosition]="false">
+      </div>
+      <div class="card-body pt-3">
+         <h5>{{restaurante.nome}}</h5>
+         <p class="card-text">
+            <b>Local:</b> {{restaurante.local}}
+            <br>
+            <b>Garfos:</b> {{restaurante.garfos}}
+         </p>
+         <hr>
+         <p class="card-text">
+            <b>Contatos</b>
+            <br>
+            Telefone: <small><b>{{restaurante.telefone}}</b></small>
+            <br>
+            e-mail: <small><b>{{restaurante.email}}</b></small>
+            <br><br>
+            <b>Tipo:</b> {{restaurante.tipo}}
+         </p>
+      </div>
+
+   </div>
+</div>
+</div>
+
+<br>
+
+<ng-template #template>
+   <div class="modal-body">
+      <p>Confirma a exclusão do Prato <br> {{this.pratoAtual.nome}}?</p>
+      <button type="button" class="btn btn-default" (click)="confirmDeletePrato()" >Sim</button>
+      <button type="button" class="btn btn-primary" (click)="declineDeletePrato()" >Não</button>
+   </div>
+</ng-template>
