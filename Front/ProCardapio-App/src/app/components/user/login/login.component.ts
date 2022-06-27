@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   public login() {
      this.userService.login(this.model).subscribe(
         () => {
-           this.router.navigate(['/dashboard']);
+           this.router.navigate(['/restaurantes/lista']);
         },
         error => {
            this.toastr.error('Erro ao logar Usuário.');

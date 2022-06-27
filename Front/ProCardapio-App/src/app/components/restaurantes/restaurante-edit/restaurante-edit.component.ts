@@ -8,6 +8,11 @@ import { environment } from '@environments/environment';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { PratosListaComponent } from '@app/components/pratos/pratos-lista/pratos-lista.component';
+import { Prato } from '@app/models/Prato';
+import { RedeSocial } from '@app/models/RedeSocial';
+import { of } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, map, startWith, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-restaurante-edit',
@@ -21,11 +26,11 @@ export class RestauranteEditComponent implements OnInit {
    estadoSalvar: string = 'putRestaurante';
    imagemURL = 'assets/upload.png';
    file: File;
-
+  
    get pratos(): FormArray {
-      return <FormArray>this.registerForm.get('pratos');
+  return <FormArray>this.registerForm.get('pratos');
    }
-
+ 
    get bebidas(): FormArray {
       return <FormArray>this.registerForm.get('bebidas');
    }
@@ -44,6 +49,7 @@ export class RestauranteEditComponent implements OnInit {
       private pratoService: PratoService,
       private spinner: NgxSpinnerService) { }
 
+     
    ngOnInit(): void {
       this.validacao();
       this.carregarRestaurante();
@@ -74,6 +80,7 @@ export class RestauranteEditComponent implements OnInit {
          imagemURL: [prato.imagemURL],
       });
    }
+
 
    criaBebida(bebida: any): FormGroup {
       return this.fb.group({

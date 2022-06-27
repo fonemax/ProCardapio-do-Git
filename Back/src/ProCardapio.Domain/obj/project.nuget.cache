@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "84tZ5fqvZWUgXyW5+JTNPzx25+NeJZJFYeNwgUCEM+4K9KI/lgGEYQpLa5eVYjOEJBGz7SVCpdIPdxmrXFeUIQ==",
+  "dgSpecHash": "63te4JsJwzNSDM54PipxuDqCrl8LseLpFDpSXXbopwO2swaNKmW0yJcQBDV10v009DAp/5oCm8+oMfrIQSIcVg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Inspiron10\\Desktop\\ProCardapio do Git\\Back\\src\\ProCardapio.Domain\\ProCardapio.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Marcelo\\Desktop\\ProCardapio do Git\\Back\\src\\ProCardapio.Domain\\ProCardapio.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -4,10 +4,13 @@ import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { Restaurante } from '@app/models/Restaurante';
-import { RestauranteService } from '@app/services/restaurante.service';
+import {Prato} from '@app/models/Prato';
+import { PratoService } from '@app/services/prato.service';
 import { environment } from '@environments/environment';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { Restaurante } from '@app/models/Restaurante';
+import { RestauranteService } from '@app/services/restaurante.service';
+
 
 @Component({
   selector: 'app-pratos-lista',
@@ -26,8 +29,11 @@ export class PratosListaComponent implements OnInit {
 //export class RestauranteListaComponent implements OnInit {
 
 
+  public pratos: Prato[] = [];
+  public pratoFilter: Prato[] = [];
   public restaurantes: Restaurante[] = [];
   public restFilter: Restaurante[] = [];
+  
 
   modalRef?: BsModalRef;
 
@@ -35,29 +41,29 @@ export class PratosListaComponent implements OnInit {
   public margemImg: number = 2;
   public exibirImg: boolean = true;
   private filtroListado: string = '';
-  public restauranteId: number = 0;
+  public restauranteId: number = 25;
 
 
 
 
-  public get filtroListaRest(): string {
+  public get filtroListaPrato(): string {
     return this.filtroListado;
   }
 
-  public set filtroListaRest(value: string) {
+  public set filtroListaPrato(value: string) {
     this.filtroListado = value;
-    this.restFilter = this.filtroListado ? this.filtrarRestaurantes(this.filtroListado) : this.restaurantes;
+    this.pratoFilter = this.filtroListado ? this.filtrarPrato(this.filtroListado) : this.pratos;
   }
 
-  public filtrarRestaurantes(filtrarPor: string): Restaurante[] {
+  public filtrarPrato(filtrarPor: string): Prato[] {
     filtrarPor = filtrarPor.toLocaleLowerCase();
-    return this.restaurantes.filter(
-      (restaurante: any) => restaurante.nome.toLocaleLowerCase().indexOf(filtrarPor) !== -1
+    return this.pratos.filter(
+      (prato: any) => prato.nome.toLocaleLowerCase().indexOf(filtrarPor) !== -1
       )
   }
 
   constructor(
-    private restauranteService: RestauranteService,
+    private pratoService: PratoService,
     private modalService: BsModalService,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService,
@@ -66,7 +72,7 @@ export class PratosListaComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.carregarRestaurantes();
+    this.carregarPratos(25);
   }
 
   public alterarImg(): void {
@@ -79,18 +85,37 @@ export class PratosListaComponent implements OnInit {
       : 'assets/semImagem.jpg'
   }
 
-  public carregarRestaurantes(): void {
-    this.restauranteService.getAllRestaurantes().subscribe(
-      (restaurantesResp: Restaurante[]) => {
-        this.restaurantes = restaurantesResp;
-        this.restFilter = this.restaurantes;
+  public carregarPratos(restauranteId: number): void {
+    this.pratoService
+       .getPratosByRestauranteId(restauranteId)
+       .subscribe(
+          (pratosRet: Prato[]) => {
+            this.pratos = pratosRet;
+            this.pratoFilter = this.pratos;
+            // pratosRet.forEach((prato) => {
+               //this.pratos.push(this.criarPrato(prato));
+          //   });
+          },
+          (error: any) => {
+             this.toastr.error('Erro ao carregar Pratos', 'Erro!');
+             console.error(error);
+          }
+       )
+       .add(() => this.spinner.hide());
+ }
+
+/*  public carregarPratos(): void {
+    this.pratoService.getPratosByRestauranteId(this.restauranteId).subscribe(
+      (pratosResp: Prato[]) => {
+        this.pratos = pratosResp;
+        this.pratoFilter = this.pratos;
       },
       (error: any) => {
         console.error(error);
         this.toastr.error('Erro ao carregar Restaurantes','Erro!');
       }
     ).add(() => this.spinner.hide());
-  }
+  }*/
 
   openModal(event: any, template: TemplateRef<any>, restauranteId: number): void {
     event.stopPropagation();
@@ -98,15 +123,15 @@ export class PratosListaComponent implements OnInit {
     this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
   }
 
-  confirm(): void {
+ /* confirm(): void {
     this.modalRef?.hide();this.spinner.show();
-    this.restauranteService.deleteRestaurante(this.restauranteId).subscribe(
-      (result: any) => {
-        if (result.message === 'Deletado') {
-          this.toastr.success('O Restaurante foi excluído com sucesso.','Excluído!');
-          this.carregarRestaurantes();
-        }
-      },
+   // this.pratoService.deletePrato(this.pratoId).subscribe(
+     // (result: any) => {
+     //   if (result.message === 'Deletado') {
+       //   this.toastr.success('O Restaurante foi excluído com sucesso.','Excluído!');
+      //    this.carregarRestaurantes();
+   ///     }
+    //  },
       (error: any) => {
         console.error(error);
         this.toastr.error(`Erro ao excluir Restaurante de cógigo ${this.restauranteId}`,'Erro!');
@@ -120,7 +145,7 @@ export class PratosListaComponent implements OnInit {
 
   detalheRestaurante(id: number): void {
     this.router.navigate([`restaurantes/detalhe/${id}`]);
-  }
+  }*/
 
   get bsConfig(): any {
    return {

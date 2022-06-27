@@ -6,40 +6,57 @@
           <div class="form-row">
             <div class="form-group col-md-12">
               <label>Nome</label>
-              <input type="text" class="form-control" [(ngModel)]="restaurante.nome"
-                [ngClass]="{'is-invalid': registerForm.get('nome')?.errors && registerForm.get('nome')?.touched}"
-                formControlName="nome" placeholder="Insira o Nome">
-              <div *ngIf="registerForm.get('nome')?.hasError('required')
-              && registerForm.get('nome')?.touched" class="invalid-feedback">
-               Nome é obrigatório.
+              <input type="text" class="form-control" [(ngModel)]="restaurante.nome" [ngClass]="{
+                           'is-invalid':
+                              registerForm.get('nome')?.errors &&
+                              registerForm.get('nome')?.touched
+                        }" formControlName="nome" placeholder="Insira o Nome" />
+              <div *ngIf="
+                           registerForm.get('nome')?.hasError('required') &&
+                           registerForm.get('nome')?.touched
+                        " class="invalid-feedback">
+                Nome é obrigatório.
               </div>
-              <div *ngIf="registerForm.get('nome')?.hasError('minlength')
-            && registerForm.get('nome')?.touched" class="invalid-feedback">
-               Nome deve ter no mínimo 4 Caracters.
+              <div *ngIf="
+                           registerForm.get('nome')?.hasError('minlength') &&
+                           registerForm.get('nome')?.touched
+                        " class="invalid-feedback">
+                Nome deve ter no mínimo 4 Caracters.
               </div>
-              <div *ngIf="registerForm.get('nome')?.hasError('maxlength')
-          && registerForm.get('nome')?.touched" class="invalid-feedback">
-            Nome deve ter no máximo 50 Caracters.
+              <div *ngIf="
+                           registerForm.get('nome')?.hasError('maxlength') &&
+                           registerForm.get('nome')?.touched
+                        " class="invalid-feedback">
+                Nome deve ter no máximo 50 Caracters.
               </div>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-8">
               <label>Local</label>
-              <input type="text" class="form-control" [(ngModel)]="restaurante.local" [ngClass]="{'is-invalid': registerForm.get('local')?.errors
-              && registerForm.get('local')?.touched}" formControlName="local" placeholder="">
-              <div *ngIf="registerForm.get('local')?.hasError('required')
-              && registerForm.get('local')?.touched" class="invalid-feedback">
+              <input type="text" class="form-control" [(ngModel)]="restaurante.local" [ngClass]="{
+                           'is-invalid':
+                              registerForm.get('local')?.errors &&
+                              registerForm.get('local')?.touched
+                        }" formControlName="local" placeholder="" />
+              <div *ngIf="
+                           registerForm.get('local')?.hasError('required') &&
+                           registerForm.get('local')?.touched
+                        " class="invalid-feedback">
                 Local é obrigatório.
               </div>
             </div>
             <div class="form-group col-md-4">
               <label>Tipo</label>
-              <input type="text" class="form-control" [(ngModel)]="restaurante.tipo"
-                [ngClass]="{'is-invalid': registerForm.get('tipo')?.errors
-            && registerForm.get('tipo')?.touched}" formControlName="tipo" placeholder="">
-              <div *ngIf="registerForm.get('tipo')?.hasError('required')
-            && registerForm.get('tipo')?.touched" class="invalid-feedback">
+              <input type="text" class="form-control" [(ngModel)]="restaurante.tipo" [ngClass]="{
+                           'is-invalid':
+                              registerForm.get('tipo')?.errors &&
+                              registerForm.get('tipo')?.touched
+                        }" formControlName="tipo" placeholder="" />
+              <div *ngIf="
+                           registerForm.get('tipo')?.hasError('required') &&
+                           registerForm.get('tipo')?.touched
+                        " class="invalid-feedback">
                 Tipo é obrigatório.
               </div>
             </div>
@@ -47,69 +64,120 @@
           <div class="form-row">
             <div class="form-group col-md-2">
               <label>Garfos</label>
-              <input type="text" [(ngModel)]="restaurante.garfos" [ngClass]="{'is-invalid': registerForm.get('garfos')?.errors
-              && registerForm.get('garfos')?.touched}" class="form-control" formControlName="garfos"
-                placeholder="">
-              <div *ngIf="registerForm.get('garfos')?.hasError('required')
-              && registerForm.get('garfos')?.touched" class="invalid-feedback">
-              Garfos é obrigatório.
+              <input type="text" [(ngModel)]="restaurante.garfos" [ngClass]="{
+                           'is-invalid':
+                              registerForm.get('garfos')?.errors &&
+                              registerForm.get('garfos')?.touched
+                        }" class="form-control" formControlName="garfos" placeholder="" />
+              <div *ngIf="
+                           registerForm.get('garfos')?.hasError('required') &&
+                           registerForm.get('garfos')?.touched
+                        " class="invalid-feedback">
+                Garfos é obrigatório.
               </div>
-              <div *ngIf="registerForm.get('garfos')?.hasError('max')
-            && registerForm.get('garfos')?.touched" class="invalid-feedback">
-            Garfos deve ser no máximo 10.
+              <div *ngIf="
+                           registerForm.get('garfos')?.hasError('max') &&
+                           registerForm.get('garfos')?.touched
+                        " class="invalid-feedback">
+                Garfos deve ser no máximo 10.
               </div>
             </div>
 
             <div class="form-group col-md-4">
               <label>Telefone</label>
-              <input type="text" mask="(00) 00000-0000" class="form-control" [(ngModel)]="restaurante.telefone" [ngClass]="{'is-invalid': registerForm.get('telefone')?.errors
-            && registerForm.get('telefone')?.touched}" formControlName="telefone" placeholder="(00) 90000-0000">
-              <div *ngIf="registerForm.get('telefone')?.hasError('required' )
-            && registerForm.get('telefone')?.touched" class="invalid-feedback">
+              <input type="text" mask="(00) 00000-0000" class="form-control" [(ngModel)]="restaurante.telefone"
+                [ngClass]="{
+                           'is-invalid':
+                              registerForm.get('telefone')?.errors &&
+                              registerForm.get('telefone')?.touched
+                        }" formControlName="telefone" placeholder="(00) 90000-0000" />
+              <div *ngIf="
+                           registerForm.get('telefone')?.hasError('required') &&
+                           registerForm.get('telefone')?.touched
+                        " class="invalid-feedback">
                 Telefone é obrigatório.
               </div>
             </div>
             <div class="form-group col-md-6">
               <label>Email</label>
-              <input type="text" class="form-control" [(ngModel)]="restaurante.email" [ngClass]="{'is-invalid': registerForm.get('email')?.errors
-            && registerForm.get('email')?.touched}" formControlName="email" placeholder="e-mail">
-              <div *ngIf="registerForm.get('email')?.hasError('required')
-            && registerForm.get('email')?.touched" class="invalid-feedback">
+              <input type="text" class="form-control" [(ngModel)]="restaurante.email" [ngClass]="{
+                           'is-invalid':
+                              registerForm.get('email')?.errors &&
+                              registerForm.get('email')?.touched
+                        }" formControlName="email" placeholder="e-mail" />
+              <div *ngIf="
+                           registerForm.get('email')?.hasError('required') &&
+                           registerForm.get('email')?.touched
+                        " class="invalid-feedback">
                 Email é obrigatório.
               </div>
-              <div *ngIf="registerForm.get('email')?.hasError('email')
-          && registerForm.get('email').touched" class="invalid-feedback">
+              <div *ngIf="
+                           registerForm.get('email')?.hasError('email') &&
+                           registerForm.get('email').touched
+                        " class="invalid-feedback">
                 Deve ser um e-mail válido.
               </div>
             </div>
           </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label>Nome</label>
+            <input type="text" class="form-control" [(ngModel)]="restaurante.imagemURL"
+            [ngClass]="{'is-invalid': registerForm.get('imagemURL')?.errors && registerForm.get('imagemURL')?.touched}"
+            formControlName="imagemURL" placeholder={{restaurante.imagemURL}}>
+          <div *ngIf="registerForm.get('imagemURL')?.hasError('required')
+          && registerForm.get('imagemURL')?.touched" class="invalid-feedback">
+          imagemURL é obrigatório.
+          </div>
+          </div>
+          </div>
         </tab>
+
         <tab heading="Pratos">
           <div>
-            <div formArrayName="pratos" *ngFor="let prato of pratos.controls; let j=index">
+            <input type="text" class=" "   placeholder="Filtrar por Nome" />
+           
+            <div formArrayName="pratos" *ngFor="let prato of pratos.controls; let j = index">
               <fieldset [formGroupName]="j" class="form-group">
                 <legend class="d-flex justify-content-between capitalize">
-                  {{ pratos.get(j+'.nome').value === '' ? 'Pratos' : pratos.get(j+'.nome').value }}
-                  <button (click)="removerPrato(j)" class="btn btn-sm btn-warning mb-1">remove</button>
+                  {{
+                  pratos.get(j + ".nome").value === ""
+                  ? "Pratos"
+                  : pratos.get(j + ".nome").value
+                  }}
+                  
+                  <button (click)="removerPrato(j)" class="btn btn-sm btn-warning mb-1">
+                    remove
+                  </button>
                 </legend>
                 <div class="row">
                   <div class="form-group col-md-4">
                     <label>Nome</label>
-                    <input type="text" class="form-control"
-                    [ngClass]="{'is-invalid': pratos.get(j+'.nome')?.errors && pratos.get(j+'.nome')?.touched}"
-                    formControlName="nome" placeholder="Lote">
+                    <input type="text" class="form-control" [ngClass]="{
+                                    'is-invalid':
+                                       pratos.get(j + '.nome')?.errors &&
+                                       pratos.get(j + '.nome')?.touched
+                                 }" formControlName="nome" placeholder="Lote" />
                   </div>
                   <div class="form-group col-md-4">
                     <label>Descrição</label>
-                    <input type="text" class="form-control"
-                    [ngClass]="{'is-invalid': pratos.get(j+'.descricao')?.errors && pratos.get(j+'.descricao')?.touched}"
-                    formControlName="descricao" placeholder="000">
+                    <input type="text" class="form-control" [ngClass]="{
+                                    'is-invalid':
+                                       pratos.get(j + '.descricao')?.errors &&
+                                       pratos.get(j + '.descricao')?.touched
+                                 }" formControlName="descricao" placeholder="000" />
                   </div>
                   <div class="form-group col-md-4">
                     <label>Preço</label>
-                    <input type="text" class="form-control"
-                    [ngClass]="{'is-invalid': pratos.get(j+'.preco')?.errors && pratos.get(j+'.preco')?.touched}"
-                    formControlName="preco" placeholder="R$ 0,00">
+                    <input type="text" class="form-control" [ngClass]="{
+                                    'is-invalid':
+                                       pratos.get(j + '.preco')?.errors &&
+                                       pratos.get(j + '.preco')?.touched
+                                 }" formControlName="preco" placeholder="R$ 0,00" />
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Imagem</label>
+                    <input type="text" class="form-control" formControlName="imagemURL" placeholder="Foto" />
                   </div>
                 </div>
               </fieldset>
@@ -120,78 +188,107 @@
           </div>
         </tab>
         <tab heading="Bebidas">
-         <div>
-           <div formArrayName="bebidas" *ngFor="let bebida of bebidas.controls; let k=index">
-             <fieldset [formGroupName]="k" class="form-group">
-               <legend class="d-flex justify-content-between capitalize">
-                  {{ bebidas.get(k+'.nome').value === '' ? 'Bebidas' : bebidas.get(k+'.nome').value }}
-                 <button (click)="removerBebida(k)" class="btn btn-sm btn-warning mb-1">remove</button>
-               </legend>
-               <div class="row">
-                 <div class="form-group col-md-4">
-                   <label>Nome</label>
-                   <input type="text" class="form-control"
-                   [ngClass]="{'is-invalid': bebidas.get(k+'.nome')?.errors && bebidas.get(k+'.nome')?.touched}"
-                   formControlName="nome" placeholder="Lote">
-                 </div>
-                 <div class="form-group col-md-4">
-                   <label>Descrição</label>
-                   <input type="text" class="form-control"
-                   [ngClass]="{'is-invalid': bebidas.get(k+'.descricao')?.errors && bebidas.get(k+'.descricao')?.touched}"
-                   formControlName="descricao" placeholder="000">
-                 </div>
-                 <div class="form-group col-md-4">
-                   <label>Preço</label>
-                   <input type="text" class="form-control"
-                   [ngClass]="{'is-invalid': bebidas.get(k+'.preco')?.errors && bebidas.get(k+'.preco')?.touched}"
-                   formControlName="preco" placeholder="R$ 0,00">
-                 </div>
-               </div>
-             </fieldset>
-           </div>
-           <button (click)="adicionarBebida()" class="btn btn-outline-primary">
-             Adicionar Bebida
-           </button>
-         </div>
-       </tab>
+          <div>
+            <div formArrayName="bebidas" *ngFor="let bebida of bebidas.controls; let k = index">
+              <fieldset [formGroupName]="k" class="form-group">
+                <legend class="d-flex justify-content-between capitalize">
+                  {{
+                  bebidas.get(k + ".nome").value === ""
+                  ? "Bebidas"
+                  : bebidas.get(k + ".nome").value
+                  }}
+                  <button (click)="removerBebida(k)" class="btn btn-sm btn-warning mb-1">
+                    remove
+                  </button>
+                </legend>
+                <div class="row">
+                  <div class="form-group col-md-4">
+                    <label>Nome</label>
+                    <input type="text" class="form-control" [ngClass]="{
+                                    'is-invalid':
+                                       bebidas.get(k + '.nome')?.errors &&
+                                       bebidas.get(k + '.nome')?.touched
+                                 }" formControlName="nome" placeholder="Lote" />
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Descrição</label>
+                    <input type="text" class="form-control" [ngClass]="{
+                                    'is-invalid':
+                                       bebidas.get(k + '.descricao')?.errors &&
+                                       bebidas.get(k + '.descricao')?.touched
+                                 }" formControlName="descricao" placeholder="000" />
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Preço</label>
+                    <input type="text" class="form-control" [ngClass]="{
+                                    'is-invalid':
+                                       bebidas.get(k + '.preco')?.errors &&
+                                       bebidas.get(k + '.preco')?.touched
+                                 }" formControlName="preco" placeholder="R$ 0,00" />
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Imagem</label>
+                    <input type="text" class="form-control" formControlName="imagemURL" placeholder="Foto" />
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <button (click)="adicionarBebida()" class="btn btn-outline-primary">
+              Adicionar Bebida
+            </button>
+          </div>
+        </tab>
         <tab heading="Redes Sociais">
-         <div formArrayName="redesSociais" *ngFor="let rede of redesSociais.controls; let i=index">
+          <div formArrayName="redesSociais" *ngFor="let rede of redesSociais.controls; let i = index">
             <fieldset [formGroupName]="i" class="form-group">
-               <legend class="d-flex justify-content-between capitalize">
-                  {{  redesSociais.get(i+'.nome').value === ''
-                     ? 'Redes Sociais'
-                     : redesSociais.get(i+'.nome').value?.replace('fab fa-','') }}
-                 <button (click)="removerRedeSocial(i)" class="btn btn-sm btn-warning mb-1"
-                   >remove</button>
-               </legend>
-               <div class="row">
-                 <div class="form-group col-md-4">
-                   <label>Nome</label>
-                   <select class="form-control"
-                   [ngClass]="{'is-invalid':  redesSociais.get(i+'.nome')?.errors &&  redesSociais.get(i+'.nome')?.touched}"
-                   formControlName="nome">
-                     <option value="">Selecione</option>
-                     <option value="fab fa-youtube">Youtube</option>
-                     <option value="fab fa-instagram">Instagram</option>
-                     <option value="fab fa-facebook">Facebook</option>
-                     <option value="fab fa-twitter">Twitter</option>
-                     <option value="fab fa-google">Google</option>
-                     <option value="fab fa-linkedin">Linkedin</option>
-                     <option value="fab fa-pinterest">Pinterest</option>
-                     <option value="fab fa-whatsapp">Whatsapp</option>
-                     <option value="fab fa-telegram">Telegram</option>
-                     <option value="fab fa-skype">Skype</option>
-                     <option value="fab fa-vimeo">Vimeo</option>
-                   </select>
-                 </div>
-                 <div class="form-group col-md-4">
-                   <label>Link</label>
-                   <input type="text" class="form-control"
-                   [ngClass]="{'is-invalid':  redesSociais.get(i+'.url')?.errors &&  redesSociais.get(i+'.url')?.touched}"
-                   formControlName="url" placeholder="URL">
-                 </div>
-               </div>
-             </fieldset>
+              <legend class="d-flex justify-content-between capitalize">
+                {{
+                redesSociais.get(i + ".nome").value === ""
+                ? "Redes Sociais"
+                : redesSociais
+                .get(i + ".nome")
+                .value?.replace("fab fa-", "")
+                }}
+                <button (click)="removerRedeSocial(i)" class="btn btn-sm btn-warning mb-1">
+                  remove
+                </button>
+              </legend>
+              <div class="row">
+                <div class="form-group col-md-4">
+                  <label>Nome</label>
+                  <select class="form-control" [ngClass]="{
+                                 'is-invalid':
+                                    redesSociais.get(i + '.nome')?.errors &&
+                                    redesSociais.get(i + '.nome')?.touched
+                              }" formControlName="nome">
+                    <option value="">Selecione</option>
+                    <option value="fab fa-youtube">Youtube</option>
+                    <option value="fab fa-instagram">
+                      Instagram
+                    </option>
+                    <option value="fab fa-facebook">Facebook</option>
+                    <option value="fab fa-twitter">Twitter</option>
+                    <option value="fab fa-google">Google</option>
+                    <option value="fab fa-linkedin">Linkedin</option>
+                    <option value="fab fa-pinterest">
+                      Pinterest
+                    </option>
+                    <option value="fab fa-whatsapp">Whatsapp</option>
+                    <option value="fab fa-telegram">Telegram</option>
+                    <option value="fab fa-skype">Skype</option>
+                    <option value="fab fa-vimeo">Vimeo</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-4">
+                  <label>Link</label>
+                  <input type="text" class="form-control" [ngClass]="{
+                                 'is-invalid':
+                                    redesSociais.get(i + '.url')?.errors &&
+                                    redesSociais.get(i + '.url')?.touched
+                              }" formControlName="url" placeholder="URL" />
+                </div>
+              </div>
+            </fieldset>
           </div>
           <button (click)="adicionarRedeSocial()" class="btn btn-outline-primary">
             Adicionar Rede Social
@@ -201,8 +298,9 @@
       <div class="row">
         <div class="col-md-12 d-flex justify-content-end">
           <!-- {{registerForm.value | json}} -->
-          <button class="btn btn-success" [disabled]="!registerForm.valid" (click)="atualizarRestaurante()" >Salvar
-            Alterações</button>
+          <button class="btn btn-success" [disabled]="!registerForm.valid" (click)="atualizarRestaurante()">
+            Salvar Alterações
+          </button>
         </div>
       </div>
     </div>
@@ -210,36 +308,39 @@
       <div class="form-row">
         <div class="form-group col-md-9">
           <input type="file" #file (change)="onFileChange($event)" class="form-control is-invalid"
-            formControlName="imagemURL" placeholder="" style="display: none">
+            formControlName="imagemURL" placeholder="" style="display: none" />
         </div>
       </div>
       <div class="card profile-card-2">
         <div class="card-img-block">
-          <img [src]="imagemURL" class="img-fluid" (click)="file.click()" style="cursor: pointer; width: 350px;"
+          <img [src]="imagemURL" class="img-fluid" (click)="file.click()" style="cursor: pointer; width: 350px"
             alt="Card image cap" />
         </div>
         <div class="card-body pt-3">
-          <h4>{{restaurante.nome}}</h4>
+          <h4>{{ restaurante.nome }}</h4>
           <p class="card-text">
-            <b>Telefone:</b> {{restaurante.telefone}}
-            <br>
-            <b>Email:</b> {{restaurante.email}}
+            <b>Telefone/Whatsapp:</b> {{ restaurante.telefone | mask:"(00) 00000-0000" }}
+            <br />
+            <b>Email:</b> {{ restaurante.email }}
           </p>
-          <hr>
+          <hr />
           <p class="card-text">
-            <b>Contatos</b><br>
-            <small class="text-muted">Telefone: {{restaurante.telefone | mask: '(00) 00000-0000'}}</small>
-            <br>
-            <small class="text-muted">e-mail: {{restaurante.email}}</small>
+            <b>Redes Sociais</b><br />
+            <!--small class="text-muted">Telefone:
+              {{ restaurante.telefone | mask: "(00) 00000-0000" }}</small>
+            <br />
+            <small class="text-muted">e-mail: {{ restaurante.email }}</small-->
+            <media class="text-muted"> https://www.facebook.com/caracas.sushi  </media>
           </p>
+        
+         
           <p class="card-text">
             Garfos:
-            <small class="text-muted">{{restaurante.garfos}}</small>
+            <small class="text-muted">{{ restaurante.garfos }}</small>
           </p>
           <div class="row">
             <div class="icon-block col-md-8 iconesSociais">
-              <a class="mr-3"
-                target="_blank">
+              <a class="mr-3" target="_blank">
                 <i class="fab fa-youtube"></i>
               </a>
             </div>

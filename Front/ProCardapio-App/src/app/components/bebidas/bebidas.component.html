@@ -1,42 +1,59 @@
-<app-titulo [titulo]="'Bebidas'"
-[iconClass]="'fa fa-wine-bottle'"
-[botaoListar]="true">
+<app-titulo
+   [titulo]="'Bebidas'"
+   [iconClass]="'fa fa-wine-bottle'"
+   [botaoListar]="true"
+>
 </app-titulo>
+
+<body>
+   <div class="container-fluid">
+      <input
+         type="text"
+         class="form-control"
+         [(ngModel)]="filtroListaBebida"
+         placeholder="Filtrar por Nome"
+      />
+      <ul class="list-group">
+         <div *ngFor="let bebida of bebidaFilter"(click)="openModal($event, template, bebida.id)" style="cursor: pointer">
+            <li class="list-group-item">
+               <div class="row">
+                  <div class="col-4">
+                     <p></p>
+                     <p class="text-sm-left">{{ bebida.nome }}</p>
+                  </div>
+                  <div class="col-4">
+                     <p></p>
+                     R$ {{ bebida.preco }},00
+                  </div>
+                  <div class="col-4">
+                     <img
+                        [src]="retornaImagem(bebida.imagemURL)"
+                        [collapse]="!exibirImg"
+                        [isAnimated]="true"
+                        [style.width.px]="100"
+                        [style.margin.px]="0"
+                        alt="100"
+                     />
+                     <ng-template #template>
+                        <div class="modal-body text-center">
+                           <img
+                              src="https://localhost:5001/Resources/Images/{{
+                                 bebida.imagemURL
+                              }}"
+                              class="img-fluid"
+                           />
+                        </div>
+                     </ng-template>
+                  </div>
+                  <ng-template #template>
+                     <div class="modal-body">
+                        <div class="container-fluid"></div>
+                     </div>
+                  </ng-template>
+               </div>
+            </li>
+         </div>
+      </ul>
+   </div>
+</body>
 <router-outlet></router-outlet>
-<li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item"></li> <li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item"></li> <li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item"></li> <li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item"></li> <li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item"></li> <li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item"></li> <li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item"></li> <li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item"></li> <li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item"></li> <li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item"></li> <li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item"></li> <li class="list-group-item">A second item</li>
-<li class="list-group-item">A third item</li>
-<li class="list-group-item">A fourth item</li>
-<li class="list-group-item"></li>

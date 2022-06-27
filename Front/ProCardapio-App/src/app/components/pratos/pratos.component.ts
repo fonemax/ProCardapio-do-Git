@@ -17,7 +17,6 @@ import { Restaurante } from '@app/models/Restaurante';
 })
 
 
-
 export class PratosComponent implements OnInit {
 
 

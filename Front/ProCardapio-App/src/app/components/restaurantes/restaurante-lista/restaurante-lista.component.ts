@@ -17,6 +17,7 @@ export class RestauranteListaComponent implements OnInit {
 
   public restaurantes: Restaurante[] = [];
   public restFilter: Restaurante[] = [];
+ 
 
   modalRef?: BsModalRef;
 

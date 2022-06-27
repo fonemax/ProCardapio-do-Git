@@ -8,13 +8,13 @@ import { take } from 'rxjs/operators';
 @Injectable()
 export class BebidaService {
 
-  baseURL = environment.apiURL + 'v1/bebidas';
+  baseURL = environment.apiURL + 'v1/Bebidas';
 
   constructor(private hhtp: HttpClient) { }
 
-  public getBebidasByIdRestauranteId(restauranteId: number): Observable<Bebida[]> {
+  public getBebidasByRestauranteId(restauranteId: number): Observable<Bebida[]> {
     return this.hhtp
-    .get<Bebida[]>(`${this.baseURL}/${restauranteId}`)
+    .get<Bebida[]>(`${this.baseURL}?restauranteId=${restauranteId}`)
     .pipe(take(1));
   }
 
