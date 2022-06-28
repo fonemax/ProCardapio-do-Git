@@ -6,34 +6,42 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+   selector: 'app-login',
+   templateUrl: './login.component.html',
+   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
    model: any = {};
 
-   constructor(private fb: FormBuilder,
+   constructor(
+      private fb: FormBuilder,
       private spinner: NgxSpinnerService,
       private userService: UserService,
       private router: Router,
-      private toastr: ToastrService) { }
+      private toastr: ToastrService
+   ) {}
 
-  ngOnInit(): void {
-   if (localStorage.getItem('token') !== null) {
-      this.router.navigate(['/dashboard']);
+   ngOnInit(): void {
+      if (localStorage.getItem('token') !== null)
+         this.router.navigate(['/restaurantes/lista']);
+      if (localStorage.getItem('token') === null) {
+         this.router.navigate(['/users/login']);
+      }
    }
-  }
 
-  public login() {
-     this.userService.login(this.model).subscribe(
-        () => {
-           this.router.navigate(['/restaurantes/lista']);
-        },
-        error => {
-           this.toastr.error('Erro ao logar Usuário.');
-        }
-     );
-  }
-
+   public login() {
+      this.userService.login(this.model).subscribe(
+         () => {
+            if (localStorage.getItem('token') === null) {
+               this.router.navigate(['/users/login']);
+               this.toastr.error('Usuario ou Senha incorretos');
+            }
+            if (localStorage.getItem('token') !== null)
+               this.router.navigate(['/restaurantes/lista']);
+         },
+         (error) => {
+            this.toastr.error('Usuario ou senha incorretos');
+         }
+      );
+   }
 }

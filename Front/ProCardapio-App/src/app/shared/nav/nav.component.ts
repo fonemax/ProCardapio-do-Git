@@ -8,32 +8,33 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
    selector: 'app-nav',
    templateUrl: './nav.component.html',
-   styleUrls: ['./nav.component.scss']
+   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
    isCollapsed = false;
-   constructor(private fb: FormBuilder,
+   constructor(
+      private fb: FormBuilder,
       private spinner: NgxSpinnerService,
       public userService: UserService,
       private router: Router,
       private toastr: ToastrService
-   ) { }
+   ) {}
 
-   ngOnInit(): void {
-
-   }
+   ngOnInit(): void {}
 
    public showMenu(): boolean {
       return this.router.url !== '/users/login';
    }
 
    logado() {
+      console.log(this.userService.decodedToken?.unique_name);
       return this.userService.loggedIn();
    }
 
    logout() {
       localStorage.removeItem('token');
-      this.toastr.show('Usuário saiu do sistema!');
+      const nome = this.userService.decodedToken?.unique_name;
+      this.toastr.info('Usuário saiu do sistema!');
       this.router.navigate(['/users/login']);
    }
 
