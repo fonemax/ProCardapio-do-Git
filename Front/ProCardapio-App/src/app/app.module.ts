@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -91,6 +91,9 @@ defineLocale('pt-br', ptBrLocale);
     PratoService,
     BebidaService,
     UserService,
+    
+
+    
     {
        provide: HTTP_INTERCEPTORS,
        useClass: AuthInterceptor,

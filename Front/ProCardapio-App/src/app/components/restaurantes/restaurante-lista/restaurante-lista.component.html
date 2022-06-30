@@ -15,8 +15,7 @@
       </div>
       <div>
          <a
-            class="d-flex btn btn-outline-primary"
-            routerLink="/restaurantes/detalhe"
+            class="d-flex btn btn-outline-primary" routerLink="/restaurantes/detalhe"
          >
             <i class="fa fa-plus-circle my-1"></i>
             <b class="ml-1 d-none d-sm-block">Novo</b>
@@ -43,12 +42,16 @@
             <th>Garfos</th>
             <th class="d-none d-md-table-cell">Telefone</th>
             <th class="d-none d-md-table-cell">Email</th>
-            <th class="d-none d-md-table-cell">Qtd Pratos</th>
+            <th class="d-none d-md-table-cell"></th>
             <th>Opções</th>
          </tr>
       </thead>
       <tbody *ngIf="restaurantes.length">
-         <tr *ngFor="let rest of restFilter" style="cursor: pointer">
+         <tr
+            *ngFor="let rest of restFilter"
+           
+            style="cursor: pointer"
+         >
             <td class="d-none d-md-table-cell">
                <img
                   [src]="retornaImagem(rest.imagemURL)"

@@ -1,10 +1,10 @@
-section {
+ section {
   padding-top: 4rem;
   padding-bottom: 5rem;
   background-color: #f1f4fa;
 }
 .wrap {
-  display: flex;
+  display: width fuid ;
   background: white;
   padding: 1rem 1rem 1rem 1rem;
   border-radius: 0.5rem;
@@ -28,7 +28,7 @@ section {
   padding-right: 1rem;
 }
 .vcenter {
-  margin: auto;
+  margin: left;
 }
 
 .mbr-section-title3 {
@@ -44,7 +44,7 @@ h2 {
 }
 .display-6 {
   font-family: 'Source Sans Pro',sans-serif;
-  font-size: 1.4re
+  font-size: 2rem;
 }
 .mbr-bold {
   font-weight: 700;
@@ -56,3 +56,10 @@ p {
   line-height: 25px;
 }
 
+i.iconClass {
+  font-size: 3em;
+}
+
+i.iconClass.minhaclasse {
+  font-size: 6em;
+}

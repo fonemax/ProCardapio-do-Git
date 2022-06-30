@@ -37,7 +37,14 @@ const routes: Routes = [
 
   { path: 'dashboard', component: DashboardComponent },
   { path: 'pratos', component: PratosComponent },
-  { path: 'lista-pratos', component:PratosListaComponent },
+
+  { path: 'lista-pratos', component:PratosListaComponent,
+  children:[
+  {  path: 'lista-pratos/:id', component:PratosListaComponent},
+]
+  },
+  //{ path: 'lista-pratos', redirectTo: 'lista-pratos/:id' },
+
   { path: 'bebidas', component: BebidasComponent },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },

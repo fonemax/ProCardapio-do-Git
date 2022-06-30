@@ -58,16 +58,25 @@ export class RestauranteDetalheComponent implements OnInit {
    ) {}
 
    ngOnInit(): void {
-      this.validacao();
-      this.carregarRestaurante();
+        
+      if (localStorage.getItem('token') !== null)
+         this.router.navigate(['/restaurantes/detalhe/id']);
+      if (localStorage.getItem('token') !== null)
+         this.router.navigate(['/restaurantes/detalhe']);
+      if (localStorage.getItem('token') === null) 
+         this.router.navigate(['/users/login']);
+         this.validacao();{
+         this.carregarRestaurante();
+      
+      }
    }
 
    // função que carrega restaurante para edição
-     public carregarRestaurante(): void {
+   public carregarRestaurante(): void {
       this.restauranteId = +this.activatedRouter.snapshot.paramMap.get('id');
       if (this.restauranteId !== null && this.restauranteId !== 0) {
          this.estadoSalvar = 'putRestaurante';
-       //  this.spinner.show();
+         //  this.spinner.show();
          this.restauranteService
             .getRestauranteById(this.restauranteId)
             .subscribe(
@@ -93,7 +102,7 @@ export class RestauranteDetalheComponent implements OnInit {
             .add(() => this.spinner.hide());
       }
    }
-     // função para carrega os pratos do restaurante na pagina de edição do restaurante
+   // função para carrega os pratos do restaurante na pagina de edição do restaurante
    public carregarPratos(restauranteId: number): void {
       this.pratoService
          .getPratosByRestauranteId(restauranteId)
@@ -116,7 +125,7 @@ export class RestauranteDetalheComponent implements OnInit {
       if (this.form.valid && this.restaurante.id == undefined) {
          this.spinner.show();
          this.restaurante =
-            this.estadoSalvar ==='putRestaurante'
+            this.estadoSalvar === 'putRestaurante'
                ? { ...this.form.value }
                : { id: this.restaurante.id, ...this.form.value };
          this.restauranteService[this.estadoSalvar](this.restaurante)
@@ -140,7 +149,7 @@ export class RestauranteDetalheComponent implements OnInit {
             .add(() => this.spinner.hide());
       }
    }
-    //função que salva novo  prato no banco de dados
+   //função que salva novo  prato no banco de dados
    public salvarPratos(): void {
       if (this.form.controls.pratos.valid) {
          this.spinner.show();
@@ -160,7 +169,7 @@ export class RestauranteDetalheComponent implements OnInit {
       }
    }
 
-    // validadores formularios restaurante
+   // validadores formularios restaurante
    private validacao(): void {
       this.form = this.fb.group({
          nome: [
@@ -192,7 +201,6 @@ export class RestauranteDetalheComponent implements OnInit {
       this.pratos.push(this.criarPrato({ id: 0 } as Prato));
    }
 
-
    // função que cria formularios novo prato
    criarPrato(prato: Prato): FormGroup {
       return this.fb.group({
@@ -217,7 +225,7 @@ export class RestauranteDetalheComponent implements OnInit {
          imagemURL: [prato.imagemURL],
       });
    }
-       //reseta formulários
+   //reseta formulários
    public resetForm(): void {
       this.form.reset();
    }
@@ -247,7 +255,7 @@ export class RestauranteDetalheComponent implements OnInit {
             },
             (error: any) => {
                this.toastr.error(
-                  `Erro ao exxcluir Prato: <br> ${this.pratoAtual.nome}`,
+                  `Erro ao excluir Prato: <br> ${this.pratoAtual.nome}`,
                   ''
                );
                console.error(error);
@@ -260,20 +268,18 @@ export class RestauranteDetalheComponent implements OnInit {
       this.modalRef.hide();
    }
 
-
-
    // funçaõ que salva a imagem no disco
-  public onFileChange(ev: any): void {
+   public onFileChange(ev: any): void {
       const reader = new FileReader();
       reader.onload = (event: any) => (this.imagemURL = event.target.result);
 
       this.file = ev.target.files;
       reader.readAsDataURL(this.file[0]);
 
-     // this.upLoadImagem();
+      // this.upLoadImagem();
    }
 
-      // funçao que carrega imagem
+   // funçao que carrega imagem
    public upLoadImagem(): void {
       this.spinner.show();
       this.restauranteService

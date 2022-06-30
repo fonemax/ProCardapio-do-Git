@@ -1,5 +1,5 @@
 
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef,Output,EventEmitter,Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -10,7 +10,9 @@ import { environment } from '@environments/environment';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { Restaurante } from '@app/models/Restaurante';
 import { RestauranteService } from '@app/services/restaurante.service';
-
+import { DashboardComponent } from '@app/components/dashboard/dashboard.component';
+import { RestauranteEditComponent } from '@app/components/restaurantes/restaurante-edit/restaurante-edit.component';
+import { RestauranteDetalheComponent } from '@app/components/restaurantes/restaurante-detalhe/restaurante-detalhe.component';
 
 @Component({
   selector: 'app-pratos-lista',
@@ -18,6 +20,8 @@ import { RestauranteService } from '@app/services/restaurante.service';
   styleUrls: ['./pratos-lista.component.scss']
 })
 export class PratosListaComponent implements OnInit {
+
+  @Input() id:number = 0;
 
  // constructor() { }
 
@@ -41,9 +45,7 @@ export class PratosListaComponent implements OnInit {
   public margemImg: number = 2;
   public exibirImg: boolean = true;
   private filtroListado: string = '';
-  public restauranteId: number = 25;
-
-
+  public restauranteId: number =0;
 
 
   public get filtroListaPrato(): string {

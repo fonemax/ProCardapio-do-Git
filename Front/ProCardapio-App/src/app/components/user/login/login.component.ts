@@ -4,12 +4,16 @@ import { Router } from '@angular/router';
 import { UserService } from '@app/services/user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { Injectable,EventEmitter } from '@angular/core';
+import { User } from '@app/models/User';
 
 @Component({
    selector: 'app-login',
    templateUrl: './login.component.html',
    styleUrls: ['./login.component.scss'],
+  
 })
+@Injectable()
 export class LoginComponent implements OnInit {
    model: any = {};
 
@@ -44,4 +48,5 @@ export class LoginComponent implements OnInit {
          }
       );
    }
+
 }

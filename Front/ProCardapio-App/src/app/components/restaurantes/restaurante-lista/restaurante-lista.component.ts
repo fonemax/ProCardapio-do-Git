@@ -54,6 +54,12 @@ export class RestauranteListaComponent implements OnInit {
   ngOnInit(): void {
     this.spinner.show();
     this.carregarRestaurantes();
+    if (localStorage.getItem('token') !== null)
+    this.router.navigate(['/restaurantes/lista']);
+ if (localStorage.getItem('token') === null) 
+    this.router.navigate(['/users/login']);
+
+
   }
 
   public alterarImg(): void {

@@ -1,0 +1,41 @@
+<app-titulo [titulo]="'Cardápio Digital'" [iconClass]="'fa fa-utensil-spoon'" [botaoListar]="true">
+</app-titulo>
+
+<body>
+   <div class="container-fluid">
+      <input type="text" class="form-control" [(ngModel)]="filtroListaPrato" placeholder="Filtrar por Nome">
+      <ul class="list-group ">
+         <div *ngFor="let prato of pratoFilter"(click)="openModal($event, template, prato.id)" style ="cursor: pointer;">
+            <li class="list-group-item ">
+               <div class="row">
+                  <div class="col-4">
+                     <p></p>
+                     <p class="text-sm-left"> {{ prato.nome}}</p>
+                     
+                  </div>
+                  <div class="col-4">
+                     <p></p>  R$ 
+                        {{prato.preco}},00
+                  </div>
+                  <div class="col-4">
+                     <img [src]="retornaImagem(prato.imagemURL)" [collapse]="!exibirImg" [isAnimated]="true"
+                        [style.width.px]="100" [style.margin.px]="0" alt="100" />
+                        <ng-template #template>
+                           <div class="modal-body text-center">
+                              <img src="https://localhost:5001/Resources/Images/{{ prato.imagemURL}}" class="img-fluid" >
+                            
+                           </div>
+                        </ng-template>
+                  </div>
+                  
+               </div>
+            </li>
+         </div>
+      </ul>
+
+   </div>
+</body>
+
+
+
+<router-outlet></router-outlet>

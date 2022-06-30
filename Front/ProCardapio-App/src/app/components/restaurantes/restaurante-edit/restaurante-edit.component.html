@@ -85,7 +85,7 @@
 
             <div class="form-group col-md-4">
               <label>Telefone</label>
-              <input type="text" mask="(00) 00000-0000" class="form-control" [(ngModel)]="restaurante.telefone"
+              <input type="text" mask="(00) 00000-0000||(00) 0000-0000" class="form-control" [(ngModel)]="restaurante.telefone"
                 [ngClass]="{
                            'is-invalid':
                               registerForm.get('telefone')?.errors &&
@@ -135,7 +135,7 @@
 
         <tab heading="Pratos">
           <div>
-            <input type="text" class=" "   placeholder="Filtrar por Nome" />
+            <!--input type="text" class=" "   placeholder="Filtrar por Nome" /-->
            
             <div formArrayName="pratos" *ngFor="let prato of pratos.controls; let j = index">
               <fieldset [formGroupName]="j" class="form-group">
@@ -146,18 +146,18 @@
                   : pratos.get(j + ".nome").value
                   }}
                   
-                  <button (click)="removerPrato(j)" class="btn btn-sm btn-warning mb-1">
+                  <button (click)="removerPrato(j, pratos.get(j + '.id').value)" class="btn btn-sm btn-warning mb-1">
                     remove
                   </button>
                 </legend>
-                <div class="row">
+                <div class="row">             
                   <div class="form-group col-md-4">
                     <label>Nome</label>
                     <input type="text" class="form-control" [ngClass]="{
                                     'is-invalid':
                                        pratos.get(j + '.nome')?.errors &&
                                        pratos.get(j + '.nome')?.touched
-                                 }" formControlName="nome" placeholder="Lote" />
+                                 }" formControlName="nome" placeholder="Nome" />
                   </div>
                   <div class="form-group col-md-4">
                     <label>Descrição</label>
@@ -197,7 +197,7 @@
                   ? "Bebidas"
                   : bebidas.get(k + ".nome").value
                   }}
-                  <button (click)="removerBebida(k)" class="btn btn-sm btn-warning mb-1">
+                  <button (click)="removerBebida(k, bebidas.get(k + '.id').value)" class="btn btn-sm btn-warning mb-1">
                     remove
                   </button>
                 </legend>
@@ -249,7 +249,7 @@
                 .get(i + ".nome")
                 .value?.replace("fab fa-", "")
                 }}
-                <button (click)="removerRedeSocial(i)" class="btn btn-sm btn-warning mb-1">
+                <button (click)="removerRedeSocial (i)" class="btn btn-sm btn-warning mb-1">
                   remove
                 </button>
               </legend>
@@ -319,7 +319,7 @@
         <div class="card-body pt-3">
           <h4>{{ restaurante.nome }}</h4>
           <p class="card-text">
-            <b>Telefone/Whatsapp:</b> {{ restaurante.telefone | mask:"(00) 00000-0000" }}
+            <b>Telefone/Whatsapp:</b> {{ restaurante.telefone | mask:"(00) 00000-0000 " }}
             <br />
             <b>Email:</b> {{ restaurante.email }}
           </p>
